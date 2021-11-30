@@ -26,7 +26,7 @@ class SLL {
     // list already has nodes?
     addToFront(node) { 
         // check if the node is empty
-        if (isEmpty) {
+        if (this.isEmpty()) {
             this.head = node;
         }
         else{

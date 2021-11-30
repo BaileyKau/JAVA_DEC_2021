@@ -42,7 +42,7 @@ class SLL {
 
     // create a new node with given data, add it to the head. return void
     addDataToFront(data) {
-
+        this.head = new Node(data);
     }
 }
 
