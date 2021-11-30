@@ -1,9 +1,19 @@
 OOP
 	1. Encapsulation
+		object maintains a state inside a class.
+		public, private, protected
 	
 	2. Abstraction
+		hiding the working style of an obj
+		- accelerate()
+		- turnKey()
 	
 	3. Inheritance
+		class hands down from another class
+		
 	
-	4. Polymorphisism
+	4. Poly-morphisism
+		taking many forms
+		Car -> Tesla -> model X
+		
 	
