@@ -36,7 +36,7 @@ class SLL {
     // traversal
     read() { 
         var runner = this.head
-        while(runner.next) {
+        while(runner) {
             console.log("read - runner:" + runner.data);
             runner = runner.next; // moves runner
         }   
@@ -46,7 +46,7 @@ class SLL {
     // find: return true / false if current list contains a data equal to value
     contains(value) {
         var runner = this.head
-        while(runner.next) {
+        while(runner) {
             if(runner.data == value){
                 return true;
             }
