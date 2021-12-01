@@ -34,13 +34,66 @@ class SLL {
     // ---------------------------------
     // console log (print) the data of every node in the current list
     // traversal
-    read() { }
+    read() {
+        var current = this.head; // set current as the head, if it exists or not
+        while (current) { // if current, log and move to current.next
+            console.log(current.data);
+            current = current.next // move current to the next node
+        }
+    }
 
     // find: return true / false if current list contains a data equal to value
-    contains(value) { }
+    contains(value) {
+        // start at the head
+        var runner = this.head;
+        // while we have a runner
+        while (runner) {
+            // return true if data === value
+            if (runner.data === value) {
+                return true;
+            }
+            // otherwise move to the next node
+            runner = runner.next;
+        }
+        // if the while loop completes, return false
+        return false;
+    }
 
     // Remove from front: remove and return the first node in the SLL
-    removeFromFront() { }
+    removeFromFront() {
+        if (this.isEmpty()) return null; // nothing to remove
+
+        var nodeToRemove = this.head; // save the head in a temp var
+        this.head = this.head.next; // move the head
+        nodeToRemove.next = null // make the removed node to no longer reference the list
+        return nodeToRemove;
+    }
 }
 
 // ⚠ don't forget to instantiate the Singly Linked List
+
+
+var myList = {
+    value: 11,
+    next: {
+        value: 22,
+        next : {
+            value : 33,
+            next: {
+                value: 1337,
+                next: {
+                    value: 9001,
+                    next: null
+                }
+            }
+        }
+    }
+}
+
+
+// runner traversing
+var runner = this.head
+while(runner.next) {
+    runner.value;
+    runner = runner.next; // moves runner
+}

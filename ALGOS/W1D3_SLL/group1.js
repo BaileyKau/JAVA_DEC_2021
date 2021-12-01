@@ -31,16 +31,51 @@ class SLL {
         this.head = newNode; // move the head to the new node
     }
 
-    // ---------------------------------
-    // console log (print) the data of every node in the current list
-    // traversal
-    read() { }
 
-    // find: return true / false if current list contains a data equal to value
-    contains(value) { }
+    var myList = {
+    value: 11,
+    next: {
+        value: 22,
+        next: {
+            value: 33,
+            next: {
+                value: 1337,
+                next: {
+                    value: 9001,
+                    next: null
+                }
+            }
+        }
+    }
+}
 
-    // Remove from front: remove and return the first node in the SLL
-    removeFromFront() { }
+// ---------------------------------
+// console log (print) the data of every node in the current list
+// traversal
+//                  r
+// SLL -> (33) -> (22) ->
+read() {
+    // start at the head
+    var runner = this.head;
+    // checks to see if runner exists
+    while (runner) {
+        // runner.data;
+        console.log(runner.data)
+        runner = runner.next; // move runner to the next node
+    }
+}
+
+// find: return true / false if current list contains a data equal to value
+contains(value) {
+    if (this.data == value) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+// Remove from front: remove and return the first node in the SLL
+removeFromFront() { }
 }
 
 // ⚠ don't forget to instantiate the Singly Linked List

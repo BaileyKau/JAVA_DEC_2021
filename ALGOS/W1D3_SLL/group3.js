@@ -34,13 +34,46 @@ class SLL {
     // ---------------------------------
     // console log (print) the data of every node in the current list
     // traversal
-    read() { }
+    read() { 
+        var runner = this.head
+        while(runner.next) {
+            console.log("read - runner:" + runner.data);
+            runner = runner.next; // moves runner
+        }   
+    }   
+    
 
     // find: return true / false if current list contains a data equal to value
-    contains(value) { }
+    contains(value) {
+        var runner = this.head
+        while(runner.next) {
+            if(runner.data == value){
+                return true;
+            }
+            runner = runner.next;
+        }
+        return false;  
+    }
 
     // Remove from front: remove and return the first node in the SLL
-    removeFromFront() { }
+    removeFromFront() {
+        var runner = this.head;
+        runner.next = null;
+        this.head = this.head.next;
+        return runner;
+    }
 }
 
 // ⚠ don't forget to instantiate the Singly Linked List
+
+
+var myList = new SLL();
+// executing methods:
+myList.addToFront(new Node(100));
+myList.addToFront(new Node(200));
+myList.addToFront(new Node(300));
+// console.log(myList);
+
+myList.read();
+console.log(myList.contains(400));
+console.log(myList.removeFromFront()); // Node { data: 300, next: null }

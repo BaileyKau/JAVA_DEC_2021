@@ -34,13 +34,37 @@ class SLL {
     // ---------------------------------
     // console log (print) the data of every node in the current list
     // traversal
-    read() { }
+    read() {
+        current = this.head //start from the first node
+        while (current){ //when the node is null, break
+            console.log(current.data)
+            current=current.next  //move the current node to the next node to do the traversal
+        }
+    }
 
     // find: return true / false if current list contains a data equal to value
-    contains(value) { }
+    contains(value) { 
+        current = this.head
+        while (current){   //while the current node is not empty
+            if (current.data == value){ //check if the current node value equal the parameter
+                return true
+            }
+            current=current.next //move the current node to the next node and do the loop 
+        }
+        return false // return false after check all the nodes
+    }
 
     // Remove from front: remove and return the first node in the SLL
-    removeFromFront() { }
+    removeFromFront() {
+        if (this.head){ // if there is a head node
+            temp = this.head //to store the removed head node
+            this.head = this.head.next // make the 2nd node become the head, so the previous head is removed
+            console.log(temp)
+            return temp// return previous the head node
+        }else{
+            return null //if no head node, the SLL is empty, return null
+        } 
+    }
 }
 
 // ⚠ don't forget to instantiate the Singly Linked List
