@@ -78,12 +78,40 @@ class SLL {
     // consider the edge case if you have to delete the head node
     // consider the edge case your list is empty
     // consider the edge case that your list does not contain the data
-    delete(data) {}
-
-    // return the size of the current linked list
-    // NINJA BONUS: how might you do this without linearly traversing the list? O(1)
-    size() { }
+    delete(data) {
+        if (!this.head) { //check if the sll is empty or not
+            return
+        } else {        
+            if (this.head.data==data) { // 1. if the head node is the target
+                this.head=this.head.next
+                this.length--
+            }
+        // 2. if the target node is not the head and is existing
+            else {
+                runner = this.head
+                while (runner.next && runner.next.data!=data) {
+                    runner = runner.next
+                }
+                if (runner.next) { // 3. check if the target is in the sll
+                    runner.next = runner.next.next
+                    this.length--
+                }else {
+                    console.log(data + "is not in the sll")
+                }
+            }
+        }             // NINJA BONUS: how might you do this without linearly traversing the list? O(1)
+    }
+    size() {
+        return this.length
+        
+    }
 }
+var mySLL = new SLL();
+mySLL.addToFront(new Node(11));
+mySLL.addToFront(new Node(22));
+mySLL.addToFront(new Node(33));
+mySLL.delete(11);
+console.log(mySLL);
 
 // Don't forget to instantiate the SLL!
 // and add a few nodes first!

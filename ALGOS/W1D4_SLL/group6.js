@@ -78,16 +78,29 @@ class SLL {
     // consider the edge case if you have to delete the head node
     // consider the edge case your list is empty
     // consider the edge case that your list does not contain the data
-    delete(data) {}
+    delete(data) {
+        var current = this.head; // set current as the head, if it exists or not
+        if (this.isEmpty()) {
+            return null
+        };
+        if (current.data == data){
+            this.removeFromFront();
+            return null;
+        }
+        while (current.next) { // if current, log and move to current.next
+            if (current.next.data == data) {
+                current.next = current.next.next;
+                return null;
+            }
+            current = current.next;
+        }
+        return null;
+    }
 
     // return the size of the current linked list
     // NINJA BONUS: how might you do this without linearly traversing the list? O(1)
-    size() { }
+    size() {
+        return this.length;
+    }
 }
 
-// Don't forget to instantiate the SLL!
-// and add a few nodes first!
-
-// (head) -> (33) -> (22) -> null
-//            ^
-//          runner

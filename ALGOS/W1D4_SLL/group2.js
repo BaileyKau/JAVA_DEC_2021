@@ -8,7 +8,7 @@ class Node {
 class SLL {
     constructor() {
         this.head = null;
-        this.length = 0;
+       
     }
 
     // console log (print) the data of every node in the current list
@@ -78,11 +78,33 @@ class SLL {
     // consider the edge case if you have to delete the head node
     // consider the edge case your list is empty
     // consider the edge case that your list does not contain the data
-    delete(data) {}
+    delete(data) {
+        var runner = this.head;
+        while(runner){
+            if(this.head.data == data){
+                this.head = this.head.next;
+                return;
+            }
+            else if(runner.next.data == data){
+                runner.next = runner.next.next;
+                return;
+            }
+            runner = runner.next;
+        }
+        console.log(runner);
+    }
 
     // return the size of the current linked list
     // NINJA BONUS: how might you do this without linearly traversing the list? O(1)
-    size() { }
+    size() {
+        var count = 0;
+        var runner = this.head;
+        while(runner){
+            count ++
+            runner=runner.next;
+        }
+        console.log(count)
+    }
 }
 
 // Don't forget to instantiate the SLL!
@@ -91,3 +113,15 @@ class SLL {
 // (head) -> (33) -> (22) -> null
 //            ^
 //          runner
+
+// instantiate
+var myList = new SLL();
+myList.addToFront(new Node(100));
+myList.addToFront(new Node(200));
+myList.addToFront(new Node(300));
+
+//Delete
+
+myList.read(); 
+myList.delete(300);
+myList.read(); 

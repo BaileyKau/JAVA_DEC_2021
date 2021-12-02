@@ -8,7 +8,7 @@ class Node {
 class SLL {
     constructor() {
         this.head = null;
-        this.length = 0;
+        
     }
 
     // console log (print) the data of every node in the current list
@@ -58,12 +58,12 @@ class SLL {
         this.head = node; // move the head to the new node
         this.length++;
     }
-
+    
     // myList.addToFront(new Node(22));
-
+    
     // when a pointer is to the LEFT of an equal sign, we are CHANGING it
     // when a pointer is to the RIGHT of an equal sign, we are READING it
-
+    
     // create a new node with given data, add it to the head. return void
     addDataToFront(data) { // 10
         var newNode = new Node(data); // create a new node with the data
@@ -71,19 +71,46 @@ class SLL {
         this.head = newNode; // move the head to the new node
         this.length++;
     }
-
+    
     // if data is contained within the current list, delete it.
     // return void
     // assume there are no duplicates
     // consider the edge case if you have to delete the head node
     // consider the edge case your list is empty
     // consider the edge case that your list does not contain the data
-    delete(data) {}
+    delete(value) {
+        var runner = this.head;
+        // while we have a runner
+        while (runner) {
+            // return true if data === value
+            if (runner.data === value) {
+                console.log(runner);
+                console.log(runner.next.next);
+                console.log(runner.next.data);
+                runner.next =  runner.next.data;
 
+                return myList;
+            }
+            // otherwise advance the runner
+        }
+    }
+    
     // return the size of the current linked list
     // NINJA BONUS: how might you do this without linearly traversing the list? O(1)
-    size() { }
+    size() {
+        
+    }
 }
+var myList = new SLL();
+myList.addToFront(new Node(100));
+myList.addToFront(new Node(22));
+myList.addToFront(new Node(55));
+myList.addToFront(new Node(77));
+
+// console.log("pre: " + myList);
+
+myList.delete(55);
+console.log(myList);
 
 // Don't forget to instantiate the SLL!
 // and add a few nodes first!
@@ -91,3 +118,4 @@ class SLL {
 // (head) -> (33) -> (22) -> null
 //            ^
 //          runner
+

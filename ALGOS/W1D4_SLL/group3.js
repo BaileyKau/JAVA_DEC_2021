@@ -70,6 +70,7 @@ class SLL {
         newNode.next = this.head; // set the new node's next to the head
         this.head = newNode; // move the head to the new node
         this.length++;
+
     }
 
     // if data is contained within the current list, delete it.
@@ -78,12 +79,60 @@ class SLL {
     // consider the edge case if you have to delete the head node
     // consider the edge case your list is empty
     // consider the edge case that your list does not contain the data
-    delete(data) {}
+    delete(data) {
+        //list is empty
+        if(this.head === null){
+            console.log("There is no SLL")
+            return;
+        }
+        //delete the head node
+        let nodeCheck = this.length;
+        if(this.head.data == data){
+            this.head = this.head.next;
+            this.length--;
+        }
+        var runner = this.head;
+        while(runner){
+            if(runner.next.data === data){
+                runner.next = runner.next.next;
+                this.length--;
+            }
+            runner = runner.next;
+        }
+        if(nodeCheck === this.length){
+            console.log("The data does not on the list");
+            return;
+        }
+        console.log("These are " + (nodeCheck - this.length) + "have been deleted from the list");        
+    }
+
+
 
     // return the size of the current linked list
     // NINJA BONUS: how might you do this without linearly traversing the list? O(1)
-    size() { }
+    size() { 
+        // let counter = 0;
+        // var runner = this.head;
+        // while(runner){
+        //     counter++;
+        //     runner = runner.next;
+        // }
+        // return counter;
+        return this.length;
+    }
 }
+
+let SLL = new SLL();
+SLL.addDataToFront(16);
+SLL.addDataToFront(50);
+SLL.addDataToFront(40);
+SLL.addDataToFront(25);
+SLL.size();
+SLL.delete(50);
+SLL.delete(16);
+SLL.read();
+
+
 
 // Don't forget to instantiate the SLL!
 // and add a few nodes first!
