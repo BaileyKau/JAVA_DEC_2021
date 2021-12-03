@@ -21,7 +21,23 @@ class SLL {
     // return nothing
     // input: head -> (1) -> (5) -> (11) -> (7) -> (9) ->
     // print: 7
-    printSecondToLastValue() { }
+    printSecondToLastValue() {
+        // creating entry point
+        var runner = this.head;
+
+        // traverse through sll
+        while (runner) {
+            // checks to see where last node is
+            if (runner.next.next == null) {
+                // printing 2nd last value
+                console.log(runner.data)
+                return;
+            } else {
+                // if not, keep traversing
+                runner = runner.next
+            }
+        }
+    }
 
     // bonus: print nth to last
     // if the link list has a nth to last value, print it
@@ -30,8 +46,29 @@ class SLL {
     //        n = 4
     // print: 9
     // hint - use 2 runners 
-    printNthToLast(n) { }
+    printNthToLast(n) {
+        var counter = 0;
+        var runner1 = this.head;
+        var runner2 = this.head;
+        while(runner1){
+            counter++;
+            runner1=runner1.next
+        }
+        
+        var newCounter = counter - n;
+        var printCounter = 0;
+        while(runner2){
+            printCounter++
+            runner2=runner2.next;
+            console.log(printCounter)
+            if(printCounter==newCounter){
+                console.log(runner2.data);
+                return
+            }
 
+        }
+
+    }
     // reverse linked list in place
     // ** you may not swap values between nodes **
     // input:  head -> (1) -> (2) -> (3) ->
@@ -130,8 +167,17 @@ class SLL {
     // return the size of the current linked list
     // BONUS: how might you do this without linearly traversing the list? O(1)
     // you may have to change other methods within this class... 
-    size() {  }
+    size() { }
 }
 
 // Don't forget to instantiate the SLL!
 // and add a few nodes first!
+var myList = new SLL()
+myList.addToFront(new Node(99));
+myList.addToFront(new Node(55));
+myList.addToFront(new Node(200));
+myList.addToFront(new Node(44));
+myList.addToFront(new Node(33));
+myList.addToFront(new Node(22));
+
+myList.printSecondToLastValue();

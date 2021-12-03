@@ -21,7 +21,18 @@ class SLL {
     // return nothing
     // input: head -> (1) -> (5) -> (11) -> (7) -> (9) ->
     // print: 7
-    printSecondToLastValue() { }
+    printSecondToLastValue() {
+        var current = this.head;
+        if (this.isEmpty() || current.next == null) {
+            return null
+        };
+        while (current.next.next) { // if current, log and move to current.next
+            current = current.next;
+        }
+        console.log(current.data)
+        return null;
+    }
+
 
     // bonus: print nth to last
     // if the link list has a nth to last value, print it
@@ -30,7 +41,19 @@ class SLL {
     //        n = 4
     // print: 9
     // hint - use 2 runners 
-    printNthToLast(n) { }
+    printNthToLast(n) {
+        var countRunner = this.head;
+        var grabber = this.head;
+        var counter = 0;
+        while (countRunner) {
+            counter++;
+            counterRunner = countRunner.next;
+        }
+        for (int i = 0; i < counter - n; i++) {
+            grabber = grabber.next;
+        }
+        console.log(grabber.data);
+    }
 
     // reverse linked list in place
     // ** you may not swap values between nodes **

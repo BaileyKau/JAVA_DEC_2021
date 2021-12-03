@@ -21,7 +21,24 @@ class SLL {
     // return nothing
     // input: head -> (1) -> (5) -> (11) -> (7) -> (9) ->
     // print: 7
-    printSecondToLastValue() { }
+    printSecondToLastValue() {
+        //if the head does not exist, or the list is empty
+        if(!this.head){
+            return;
+        }
+        //or the list has only one Node, nothing should be printed out
+        else if(this.head.next==null){
+            return;
+        }
+        //The list has at least two Node, print Node from the second Node
+        else {
+            var current = this.head;
+            while (current.next && !current.next.next){
+                current = current.next;
+            }
+            console.log(current.data)
+        }      
+    }
 
     // bonus: print nth to last
     // if the link list has a nth to last value, print it
@@ -30,7 +47,23 @@ class SLL {
     //        n = 4
     // print: 9
     // hint - use 2 runners 
-    printNthToLast(n) { }
+    printNthToLast(n) {
+        if(!this.head){
+            return;
+        } 
+        else if(!this.head.next) {
+            if(n == 1) {
+               console.log(head.data);
+            }
+            else if(n > 1) {
+                return;
+            }
+        } 
+        else {
+            var length = this.size()
+        }
+        console.log()
+     }
 
     // reverse linked list in place
     // ** you may not swap values between nodes **
@@ -130,7 +163,15 @@ class SLL {
     // return the size of the current linked list
     // BONUS: how might you do this without linearly traversing the list? O(1)
     // you may have to change other methods within this class... 
-    size() {  }
+    size() {
+        let counter = 0;
+        var runner = this.head;
+        while(runner){
+            counter++;
+            runner = runner.next;
+        }
+        return counter;
+      }
 }
 
 // Don't forget to instantiate the SLL!

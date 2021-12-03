@@ -25,8 +25,6 @@ class SLL {
 
 
 
-
-
 /* 
 
 Warm up!!
@@ -36,8 +34,17 @@ Warm up!!
 [ ] Write the class definition and constructor for the Node class from memory.
 
 
+*/
+
+class Node{
+    constructor(data){
+        this.data = data;
+        this.next = null;
+    }
+}
 
 
+/*
 
 
 
@@ -66,7 +73,18 @@ Warm up!!
 [ ] Write the class definition and constructor for the SLL class from memory.
 
 
+*/
+class SLL{
+    constructor(){
+        // entry point
+        this.head = null;
+    }
+}
 
+var unicorn = new SLL();
+
+
+/*
 
 
 
