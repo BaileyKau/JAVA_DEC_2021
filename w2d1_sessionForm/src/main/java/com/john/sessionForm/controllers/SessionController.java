@@ -25,14 +25,20 @@ public class SessionController {
 	
 	@RequestMapping("/other")
 	public String other(HttpSession sesh, Model model) {
+//		check if something is in session:
+		if (sesh.getAttribute("num") != null) {
 //		extracting from session:
-		Integer seshNum = (Integer) sesh.getAttribute("num");
-		System.out.println(seshNum);
-		
-		seshNum += 10000;
-		model.addAttribute("newNum", seshNum);
+			Integer seshNum = (Integer) sesh.getAttribute("num");
+			System.out.println(seshNum);
+			
+			seshNum += 10000;
+			model.addAttribute("newNum", seshNum);
 //		sesh.setAttribute("num", seshNum);
-		return "other.jsp";
+			return "other.jsp";
+		} else {
+			model.addAttribute("noSessionError", "that is not in session");
+			return "other.jsp";
+		}
 	}
 	
 	

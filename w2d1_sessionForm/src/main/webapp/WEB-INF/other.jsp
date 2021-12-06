@@ -11,6 +11,8 @@
 </head>
 <body>
 	<h1>Other.jsp</h1>
+	${noSessionError}
+	<hr />
 	name: <c:out value="${sessionName }"/><br />
 	num: <c:out value="${num }"/><br />
 	<hr />
