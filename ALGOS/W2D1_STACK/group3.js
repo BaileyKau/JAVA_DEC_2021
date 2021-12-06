@@ -22,10 +22,23 @@ class slStack {
     }
 
     // add to top
-    push(newNode) {}
+    push(newNode) {
+        
+        //whenever this.top is pointing, set newNode.next pointing to this.top
+        newNode.next = this.top;
+        this.top = newNode;
+    }
 
     // remove from top
-    pop() {   }
+    pop() {
+        if(this.top == null){
+            return;
+        }else {
+            var temp = this.top;
+            this.top = this.top.next;
+            temp.next = null;
+        }
+    }
 
     // aka check top
     peek() {}
@@ -38,7 +51,13 @@ class slStack {
 
     // length getter
     getLength() {}
+
 }
 
 // don't forget to instantiate the slStack!
 // add a few nodes first
+
+
+var myList = new slStack();
+ 
+

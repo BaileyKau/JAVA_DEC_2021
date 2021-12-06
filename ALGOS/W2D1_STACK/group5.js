@@ -19,13 +19,27 @@ class Node {
 class slStack {
     constructor() {
         this.top = null; // this.head, this.end
+        this.length = 0;
     }
 
     // add to top
-    push(newNode) {}
+    push(newNode) {
+        newNode.next = this.top;
+        this.top = newNode;
+        this.length++;
+    }
 
     // remove from top
-    pop() {   }
+    pop() {
+        if(!this.top){
+            return null
+        }
+        var remove = this.top;
+        this.top = this.top.next;
+        remove.next = null;
+        this.length--;
+        return remove;
+    }
 
     // aka check top
     peek() {}
@@ -41,4 +55,8 @@ class slStack {
 }
 
 // don't forget to instantiate the slStack!
+var myStack = new slStack();
 // add a few nodes first
+myStack.push(new Node(99));
+myStack.push(new Node(55));
+console.log(myStack);

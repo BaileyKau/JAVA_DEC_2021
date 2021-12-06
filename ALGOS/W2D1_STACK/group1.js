@@ -22,17 +22,46 @@ class slStack {
     }
 
     // add to top
-    push(newNode) {}
+    push(newNode) {
+        //if the top is empty add the node
+        if(isEmpty) {
+            this.top = newNode
+        //  else the new node points to where the head is pointing
+        }else{
+            newNode.next = this.top
+        }
+        
+    }
+    }
 
-    // remove from top
-    pop() {   }
 
-    // aka check top
-    peek() {}
 
-    // check if empty
-    isEmpty() {}
 
+        if(isEmpty){// if it is empty there is nothing to pop(remove)
+            return null
+        }
+        var temp = this.top;// top is a temp variable 
+        this.top = this.top.next;// moving top
+        temp.next = null;// removing the node from the stack
+        return temp;
+     }
+
+    // aka ch }
+
+
+        if (isEmpty) {
+            return null
+        } else {
+            return this.top.data
+        }
+        // aka check top
+    peek() {
+        
+    }
+     isEmpty() {
+
+         return this.top == null;
+     }
     // "1" == 1 true
     // "1" === 1 false
 

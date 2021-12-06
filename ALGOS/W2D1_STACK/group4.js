@@ -19,25 +19,50 @@ class Node {
 class slStack {
     constructor() {
         this.top = null; // this.head, this.end
+        this.counter = 0;
     }
 
     // add to top
-    push(newNode) {}
+    push(newNode) {
+        newNode.next = this.top;
+        this.top = newNode;
+        this.counter++;
+    }
+
 
     // remove from top
-    pop() {   }
+    pop() {
+        if (this.isEmpty()) {
+            return;
+        }
+        else {
+            var temp = this.top;
+            this.top = this.top.next;
+            temp.next = null;
+            this.counter--;
+        }
+    }
 
     // aka check top
-    peek() {}
+    peek() {
+        if (this.isEmpty()) {
+            return;
+        }
+        return this.top.data;
+    }
 
     // check if empty
-    isEmpty() {}
+    isEmpty() {
+        return this.top == null;
+    }
 
     // "1" == 1 true
     // "1" === 1 false
 
     // length getter
-    getLength() {}
+    getLength() {
+        return this.counter;
+    }   
 }
 
 // don't forget to instantiate the slStack!
