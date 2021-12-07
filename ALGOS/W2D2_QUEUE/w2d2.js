@@ -18,19 +18,34 @@ class Queue {
     constructor() {
         this.front = null; // sometimes called head "front of the line"
         this.back = null; // sometimes called rear or tail "back of the line"
+        this.length = 0;
     }
 
     // add nodes to the back of the queue
-    enqueue(node) { }
+    enqueue(node) {
+        
+    }
 
     // remove from the front
     dequeue() { }
 
     // check the front of the queue
-    peek() { }
+    peek() {
+        return this.front ? this.front.data : this.front;
+    
+        if (this.front) {
+            return this.front.data
+        } else {
+            return this.front
+        }
+    }
+
+
 
     // return true / false if queue is empty
-    isEmpty() { }
+    isEmpty() {
+        return this.front === null
+     }
 
     // return length
     count() { }
