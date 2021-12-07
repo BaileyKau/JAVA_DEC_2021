@@ -9,5 +9,8 @@
                 <artifactId>jstl</artifactId>
         </dependency>
         
+// put in application.properties
+spring.mvc.view.prefix=/WEB-INF/
+
 // put on top of every JSP file
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
