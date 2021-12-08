@@ -41,6 +41,39 @@ public class BooksApiController {
 		Book book = bookService.findBook(id);
 		return book;
 	}
+	
+//	UPDATE method 1
+	@RequestMapping(value = "/api/books1/{id}", method = RequestMethod.PUT)
+	public Book update1(@PathVariable("id") Long bookId,
+						@RequestParam(value = "title") String title, 
+					   @RequestParam(value = "description") String desc,
+					   @RequestParam(value = "language") String lang, 
+					   @RequestParam(value = "pages") Integer numOfPages) {
+		
+		Book updatedBook = bookService.EditById(bookId, title, desc, lang, numOfPages);
+		return updatedBook;
+	}
+	
+//	UPDATE method 2
+	@RequestMapping(value = "/api/books2/{id}", method = RequestMethod.PUT)
+	public Book update2(@PathVariable("id") Long bookId,
+						@RequestParam(value = "title") String title, 
+					   @RequestParam(value = "description") String desc,
+					   @RequestParam(value = "language") String lang, 
+					   @RequestParam(value = "pages") Integer numOfPages) {
+		
+//		1. find the book to update
+		Book bookToUpdate = bookService.findBook(bookId);
+		bookToUpdate.setTitle(title);
+		bookToUpdate.setDescription(desc);
+		bookToUpdate.setLanguage(lang);
+		bookToUpdate.setNumberOfPages(numOfPages);
+		
+		return bookService.updateWholeBook(bookToUpdate);
+		
+	}
+	
+	
 
 }
 

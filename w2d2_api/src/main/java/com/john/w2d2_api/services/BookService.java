@@ -43,4 +43,33 @@ public class BookService {
             return null;
         }
     }
+    
+//    UPDATE method 1
+    public Book EditById(Long id, 
+    					String title, 
+    					String desc, 
+    					String lang, 
+    					Integer pages) {
+    	
+    	Book foundBook = findBook(id);
+    	foundBook.setTitle(title);
+    	foundBook.setDescription(desc);
+    	foundBook.setLanguage(lang);
+    	foundBook.setNumberOfPages(pages);
+    	
+    	return bookRepository.save(foundBook);
+    }
+    
+//    UPDATE method 2
+    public Book updateWholeBook(Book b) {
+    	return bookRepository.save(b);
+    }
+    
+    
+    
+    
+    
+    
+    
+    
 }
